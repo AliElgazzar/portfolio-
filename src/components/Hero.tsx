@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin} from 'react-icons/fa';
 import { IconBaseProps } from 'react-icons';
 
 interface SocialLink {
@@ -11,9 +11,8 @@ interface SocialLink {
 
 const Hero: React.FC = () => {
   const socialLinks: SocialLink[] = [
-    { icon: FaGithub as React.ComponentType<IconBaseProps>, href: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: FaLinkedin as React.ComponentType<IconBaseProps>, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: FaTwitter as React.ComponentType<IconBaseProps>, href: 'https://twitter.com/yourusername', label: 'Twitter' },
+    { icon: FaGithub as React.ComponentType<IconBaseProps>, href: 'https://github.com/AliElgazzar', label: 'GitHub' },
+    { icon: FaLinkedin as React.ComponentType<IconBaseProps>, href: 'https://www.linkedin.com/in/ali-elgazzar-1b853221a/', label: 'LinkedIn' },
   ];
 
   const renderIcon = (Icon: React.ComponentType<IconBaseProps>, props: IconBaseProps = {}) => {
