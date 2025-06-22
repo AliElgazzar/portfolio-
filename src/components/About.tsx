@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import myImage from '../assets/me.jpg';
 
 const About: React.FC = () => {
   const [ref, inView] = useInView({
@@ -26,15 +27,27 @@ const About: React.FC = () => {
         >
           <h2 className="section-title">About Me</h2>
           
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
+          <div className="grid md:grid-cols-3 gap-8 items-center mb-8">
+            <div className="md:col-span-1">
+              <motion.img
+                src={myImage}
+                alt="About"
+                className="w-full h-auto rounded-lg shadow-lg object-cover"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
+            <div className="space-y-4 md:col-span-2">
               <p className="text-lg text-gray-600 dark:text-gray-300">
                 I'm a passionate Frontend Engineer with a strong foundation in modern web technologies.
                 With several years of experience in building responsive and user-friendly applications,
                 I specialize in creating seamless user experiences using React, TypeScript, and Node.js.
               </p>
             </div>
+          </div>
 
+          <div className="grid md:grid-cols-2 gap-8 items-start">
             <div className="space-y-6">
               <div className="card card-hover">
                 <h3 className="text-xl font-semibold mb-4">Education</h3>
