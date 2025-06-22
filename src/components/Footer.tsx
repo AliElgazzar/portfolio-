@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                 href="#home"
                 className="ml-2 text-primary hover:underline"
               >
-                Your Name
+                Ali Elgazzar
               </a>
             </p>
             <p className="mt-2">
