@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
             className="text-2xl font-bold text-primary"
             whileHover={{ scale: 1.05 }}
           >
-            Portfolio
+            Ali Elgazzar
           </motion.a>
 
           <div className="hidden md:flex items-center space-x-8">
