@@ -3,21 +3,18 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { IconBaseProps } from 'react-icons';
 import {
-  SiReact,
-  SiTypescript,
-  SiJavascript,
-  SiNodedotjs,
-  SiTailwindcss,
-  SiGit,
-  SiDocker,
-  SiMongodb,
+  SiReact, SiTypescript, SiJavascript, SiNodedotjs, SiTailwindcss, SiGit,
+  SiDocker, SiMongodb, SiHtml5, SiCss3, SiSass, SiRedux, SiGraphql, SiJest, SiWebpack
 } from 'react-icons/si';
 
 interface Skill {
   name: string;
   icon: React.ComponentType<IconBaseProps>;
-  level: number;
-  color: string;
+}
+
+interface SkillCategory {
+  title: string;
+  skills: Skill[];
 }
 
 const Skills: React.FC = () => {
@@ -30,15 +27,37 @@ const Skills: React.FC = () => {
     return React.createElement(Icon, props);
   };
 
-  const skills: Skill[] = [
-    { name: 'React', icon: SiReact as React.ComponentType<IconBaseProps>, level: 90, color: '#61DAFB' },
-    { name: 'TypeScript', icon: SiTypescript as React.ComponentType<IconBaseProps>, level: 85, color: '#3178C6' },
-    { name: 'JavaScript', icon: SiJavascript as React.ComponentType<IconBaseProps>, level: 90, color: '#F7DF1E' },
-    { name: 'Node.js', icon: SiNodedotjs as React.ComponentType<IconBaseProps>, level: 80, color: '#339933' },
-    { name: 'Tailwind CSS', icon: SiTailwindcss as React.ComponentType<IconBaseProps>, level: 85, color: '#06B6D4' },
-    { name: 'Git', icon: SiGit as React.ComponentType<IconBaseProps>, level: 85, color: '#F05032' },
-    { name: 'Docker', icon: SiDocker as React.ComponentType<IconBaseProps>, level: 75, color: '#2496ED' },
-    { name: 'MongoDB', icon: SiMongodb as React.ComponentType<IconBaseProps>, level: 80, color: '#47A248' },
+  const skillCategories: SkillCategory[] = [
+    {
+      title: 'Frontend',
+      skills: [
+        { name: 'React', icon: SiReact },
+        { name: 'TypeScript', icon: SiTypescript },
+        { name: 'JavaScript', icon: SiJavascript },
+        { name: 'Tailwind CSS', icon: SiTailwindcss },
+        { name: 'Redux', icon: SiRedux },
+        { name: 'HTML5', icon: SiHtml5 },
+        { name: 'CSS3', icon: SiCss3 },
+        { name: 'SASS/SCSS', icon: SiSass },
+      ],
+    },
+    {
+      title: 'Backend',
+      skills: [
+        { name: 'Node.js', icon: SiNodedotjs },
+        { name: 'MongoDB', icon: SiMongodb },
+        { name: 'GraphQL', icon: SiGraphql },
+      ],
+    },
+    {
+      title: 'Tools & DevOps',
+      skills: [
+        { name: 'Git', icon: SiGit },
+        { name: 'Docker', icon: SiDocker },
+        { name: 'Jest', icon: SiJest },
+        { name: 'Webpack', icon: SiWebpack },
+      ],
+    },
   ];
 
   const containerVariants = {
@@ -74,31 +93,21 @@ const Skills: React.FC = () => {
         >
           <h2 className="section-title">Skills & Expertise</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {skills.map((skill) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillCategories.map((category) => (
               <motion.div
-                key={skill.name}
+                key={category.title}
                 variants={itemVariants}
                 className="card card-hover"
               >
-                <div className="flex items-center mb-4">
-                  {renderIcon(skill.icon, {
-                    className: 'w-8 h-8 mr-3',
-                    style: { color: skill.color }
-                  })}
-                  <h3 className="text-xl font-semibold">{skill.name}</h3>
-                </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <motion.div
-                    className="h-2.5 rounded-full"
-                    style={{ backgroundColor: skill.color }}
-                    initial={{ width: 0 }}
-                    animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
-                  />
-                </div>
-                <div className="mt-2 text-right text-sm text-secondary">
-                  {skill.level}%
+                <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
+                <div className="space-y-4">
+                  {category.skills.map((skill) => (
+                    <div key={skill.name} className="flex items-center">
+                      {renderIcon(skill.icon, { className: 'w-6 h-6 mr-3 text-primary' })}
+                      <span className="font-medium">{skill.name}</span>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             ))}
