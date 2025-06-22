@@ -70,7 +70,6 @@ const Contact: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };
@@ -83,7 +82,6 @@ const Contact: React.FC = () => {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: "easeOut",
       },
     },
   };
@@ -96,7 +94,6 @@ const Contact: React.FC = () => {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: "easeOut",
         delay: 0.3,
       },
     },
@@ -109,7 +106,6 @@ const Contact: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
       },
     },
   };

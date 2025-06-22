@@ -26,7 +26,6 @@ const About: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };
@@ -39,7 +38,6 @@ const About: React.FC = () => {
       scale: 1,
       transition: {
         duration: 0.7,
-        ease: "easeOut",
       },
     },
   };
