@@ -1,6 +1,10 @@
-# Modern Portfolio Website
+# Ali Elgazzar - Frontend Software Engineer Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. This portfolio showcases your skills, projects, and experience as a frontend engineer.
+A modern, responsive portfolio website showcasing Ali Elgazzar's skills, projects, and experience as a Frontend Software Engineer. Built with React, TypeScript, and Tailwind CSS.
+
+## About
+
+Ali Elgazzar is a passionate Frontend Software Engineer with professional experience in designing and developing dynamic, responsive web applications using React.js, TypeScript, JavaScript, and modern UI frameworks.
 
 ## Features
 
@@ -21,6 +25,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 - Framer Motion (for animations)
 - React Icons
 - React Intersection Observer
+- Vite (build tool)
 
 ## Getting Started
 
@@ -33,8 +38,8 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
+git clone https://github.com/yourusername/ali-elgazzar.git
+cd ali-elgazzar
 ```
 
 2. Install dependencies:
@@ -51,23 +56,7 @@ npm start
 yarn start
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### Customization
-
-1. Update personal information:
-   - Edit the content in each component file
-   - Replace placeholder images in the `public/projects` directory
-   - Update social media links in the components
-
-2. Modify styles:
-   - Customize colors in `tailwind.config.js`
-   - Update global styles in `src/index.css`
-   - Modify component-specific styles in each component file
-
-3. Add your projects:
-   - Update the projects array in `src/components/Projects.tsx`
-   - Add project images to the `public/projects` directory
+4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 ## Building for Production
 
@@ -79,7 +68,7 @@ npm run build
 yarn build
 ```
 
-The build files will be created in the `build` directory.
+The build files will be created in the `dist` directory.
 
 ## Deployment
 
@@ -90,9 +79,11 @@ You can deploy this portfolio to various platforms:
 - Vercel
 - AWS Amplify
 
-## Contributing
+## Contact
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- Email: alielgazzar559@gmail.com
+- Phone: +1 (641) 233-0023
+- Location: New York, NY, USA
 
 ## License
 
