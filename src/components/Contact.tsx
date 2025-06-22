@@ -124,7 +124,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: FaMapMarkerAlt as React.ComponentType<IconBaseProps>,
-      title: 'Location',
+      title: 'Locationdd',
       content: 'New York, NY, USA',
     },
   ];
