@@ -26,40 +26,37 @@ const About: React.FC = () => {
         >
           <h2 className="section-title">About Me</h2>
           
-          <div className="mb-8">
-            <p className="text-lg text-center max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
-              I'm a passionate Frontend Engineer with a strong foundation in modern web technologies.
-              With several years of experience in building responsive and user-friendly applications,
-              I specialize in creating seamless user experiences using React, TypeScript, and Node.js.
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-lg text-gray-600 dark:text-gray-300 text-justify">
+              Front-End Software Engineer with professional experience in designing and developing dynamic, responsive web applications using React.js, TypeScript, JavaScript, and modern UI frameworks. Proficient in translating business requirements into intuitive user experiences, optimizing application performance, and ensuring cross-browser compatibility. Strong collaborator in agile environments, with a focus on clean code, scalability, and user-centric design. Eager to continuously grow full-stack development skills and contribute to impactful software solutions.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div className="card card-hover">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="card">
               <h3 className="text-xl font-semibold mb-4">Education</h3>
               <div className="space-y-4">
-                <div>
-                  <h4 className="font-medium">Bachelor's Degree in Mechatronics Engineering</h4>
-                  <p className="text-secondary">Benha university, 2017-2022</p>
-                </div>
                 <div>
                   <h4 className="font-medium">Master's Degree in Computer Science</h4>
                   <p className="text-secondary">Maharishi International University, 2024-2026</p>
                 </div>
+                <div>
+                  <h4 className="font-medium">Bachelor's Degree in Mechatronics Engineering</h4>
+                  <p className="text-secondary">Benha University, 2017-2022</p>
+                </div>
               </div>
             </div>
-
-            <div className="card card-hover">
+            <div className="card">
               <h3 className="text-xl font-semibold mb-4">Experience</h3>
               <div className="space-y-4">
                 <div>
                   <h4 className="font-medium">Front-end Engineer</h4>
                   <p className="text-secondary">Enozom Software, 2022-2024</p>
                   <ul className="list-disc list-inside mt-2 text-gray-600 dark:text-gray-300">
-                    <li>Developed responsive, accessible web applications using React and TypeScript.</li>
+                    <li>Developed responsive web apps with React, TypeScript, and Tailwind CSS.</li>
                     <li>Led front-end development for microservice-based features.</li>
                     <li>Designed and built reusable, modular UI components.</li>
-                    <li>Improved front-end performance through optimization strategies.</li>
+                    <li>Improved front-end performance via lazy loading and code splitting.</li>
                   </ul>
                 </div>
               </div>
