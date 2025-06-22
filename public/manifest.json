@@ -1,0 +1,15 @@
+{
+  "short_name": "Portfolio",
+  "name": "Frontend Engineer Portfolio",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#007AFF",
+  "background_color": "#ffffff"
+} 
