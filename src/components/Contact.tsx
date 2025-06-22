@@ -52,13 +52,64 @@ const Contact: React.FC = () => {
     }
   };
 
-  const itemVariants = {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 40, x: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, y: 40, x: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+        delay: 0.3,
+      },
+    },
+  };
+
+  const contactInfoVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
+        ease: "easeOut",
       },
     },
   };
@@ -91,16 +142,24 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          variants={containerVariants}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="section-title">Get in Touch</h2>
+          <motion.h2 
+            variants={titleVariants}
+            className="section-title"
+          >
+            Get in Touch
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <motion.div 
+              variants={contentVariants}
+              className="space-y-8"
+            >
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-8">
@@ -110,7 +169,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="space-y-6">
-                {contactInfo.map((info) => {
+                {contactInfo.map((info, index) => {
                   const ContactWrapper = info.link ? motion.a : motion.div;
                   const wrapperProps = info.link
                     ? {
@@ -126,12 +185,19 @@ const Contact: React.FC = () => {
                   return (
                     <ContactWrapper
                       key={info.title}
-                      variants={itemVariants}
+                      variants={contactInfoVariants}
                       {...wrapperProps}
+                      whileHover={{ 
+                        x: 5,
+                        transition: { duration: 0.2 }
+                      }}
                     >
                       <motion.div
                         className="text-primary"
-                        whileHover={{ x: 5 }}
+                        whileHover={{ 
+                          scale: 1.1,
+                          transition: { duration: 0.2 }
+                        }}
                       >
                         {renderIcon(info.icon)}
                       </motion.div>
@@ -143,10 +209,13 @@ const Contact: React.FC = () => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
 
             {/* Contact Form */}
-            <div className="card">
+            <motion.div 
+              variants={formVariants}
+              className="card"
+            >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
@@ -220,29 +289,42 @@ const Contact: React.FC = () => {
                   />
                 </div>
 
-                <button
+                <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   className={`btn btn-primary w-full ${
                     isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
                   }`}
+                  whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
+                </motion.button>
 
                 {submitStatus === 'success' && (
-                  <p className="text-green-600 dark:text-green-400 text-center">
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-green-600 dark:text-green-400 text-center"
+                  >
                     Message sent successfully!
-                  </p>
+                  </motion.p>
                 )}
 
                 {submitStatus === 'error' && (
-                  <p className="text-red-600 dark:text-red-400 text-center">
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-600 dark:text-red-400 text-center"
+                  >
                     Failed to send message. Please try again.
-                  </p>
+                  </motion.p>
                 )}
               </form>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

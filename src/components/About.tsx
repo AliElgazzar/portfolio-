@@ -8,9 +8,40 @@ const About: React.FC = () => {
     threshold: 0.1,
   });
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -20,20 +51,30 @@ const About: React.FC = () => {
           ref={ref}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          variants={fadeInUp}
-          transition={{ duration: 0.5 }}
+          variants={containerVariants}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="section-title">About Me</h2>
+          <motion.h2 
+            variants={itemVariants}
+            className="section-title"
+          >
+            About Me
+          </motion.h2>
           
-          <div className="max-w-3xl mx-auto mb-12">
+          <motion.div 
+            variants={itemVariants}
+            className="max-w-3xl mx-auto mb-12"
+          >
             <p className="text-lg text-gray-600 dark:text-gray-300 text-justify">
               Front-End Software Engineer with professional experience in designing and developing dynamic, responsive web applications using React.js, TypeScript, JavaScript, and modern UI frameworks. Proficient in translating business requirements into intuitive user experiences, optimizing application performance, and ensuring cross-browser compatibility. Strong collaborator in agile environments, with a focus on clean code, scalability, and user-centric design. Eager to continuously grow full-stack development skills and contribute to impactful software solutions.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="card">
+            <motion.div 
+              variants={cardVariants}
+              className="card"
+            >
               <h3 className="text-xl font-semibold mb-4">Education</h3>
               <div className="space-y-4">
                 <div>
@@ -45,8 +86,11 @@ const About: React.FC = () => {
                   <p className="text-secondary">Benha University, 2017-2022</p>
                 </div>
               </div>
-            </div>
-            <div className="card">
+            </motion.div>
+            <motion.div 
+              variants={cardVariants}
+              className="card"
+            >
               <h3 className="text-xl font-semibold mb-4">Experience</h3>
               <div className="space-y-4">
                 <div>
@@ -60,13 +104,11 @@ const About: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            variants={itemVariants}
             className="mt-12 text-center"
           >
             <a

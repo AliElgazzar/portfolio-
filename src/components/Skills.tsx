@@ -47,17 +47,57 @@ const Skills: React.FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const titleVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const skillCardVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const additionalSkillsVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        delay: 0.8,
+      },
+    },
+  };
+
+  const skillTagVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
       },
     },
   };
@@ -72,14 +112,23 @@ const Skills: React.FC = () => {
           variants={containerVariants}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="section-title">Skills & Expertise</h2>
+          <motion.h2 
+            variants={titleVariants}
+            className="section-title"
+          >
+            Skills & Expertise
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {skills.map((skill) => (
+            {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                variants={itemVariants}
+                variants={skillCardVariants}
                 className="card card-hover"
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
               >
                 <div className="flex items-center mb-2">
                   {renderIcon(skill.icon, {
@@ -93,7 +142,7 @@ const Skills: React.FC = () => {
           </div>
 
           <motion.div
-            variants={itemVariants}
+            variants={additionalSkillsVariants}
             className="mt-12 text-center"
           >
             <div className="card">
@@ -112,13 +161,20 @@ const Skills: React.FC = () => {
                   'UI/UX Design',
                   'Agile Methodologies',
                   'Problem Solving',
-                ].map((skill) => (
-                  <span
+                ].map((skill, index) => (
+                  <motion.span
                     key={skill}
+                    variants={skillTagVariants}
                     className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm font-medium"
+                    whileHover={{ 
+                      scale: 1.05,
+                      backgroundColor: '#007AFF',
+                      color: 'white',
+                      transition: { duration: 0.2 }
+                    }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>

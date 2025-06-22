@@ -59,17 +59,45 @@ const Projects: React.FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        delayChildren: 0.1,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const titleVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const projectCardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const ctaVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        delay: 0.6,
       },
     },
   };
@@ -84,14 +112,23 @@ const Projects: React.FC = () => {
           variants={containerVariants}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="section-title">Featured Projects</h2>
+          <motion.h2 
+            variants={titleVariants}
+            className="section-title"
+          >
+            Featured Projects
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                variants={itemVariants}
+                variants={projectCardVariants}
                 className="card card-hover group"
+                whileHover={{ 
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
               >
                 <div className="relative overflow-hidden rounded-lg mb-4">
                   <img
@@ -100,22 +137,26 @@ const Projects: React.FC = () => {
                     className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <a
+                    <motion.a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white hover:text-primary transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       {renderIcon(FaGithub as React.ComponentType<IconBaseProps>, { size: 24 })}
-                    </a>
-                    <a
+                    </motion.a>
+                    <motion.a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white hover:text-primary transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       {renderIcon(FaExternalLinkAlt as React.ComponentType<IconBaseProps>, { size: 24 })}
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
 
@@ -125,12 +166,18 @@ const Projects: React.FC = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
-                    <span
+                    <motion.span
                       key={tech}
                       className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm"
+                      whileHover={{ 
+                        scale: 1.05,
+                        backgroundColor: '#007AFF',
+                        color: 'white',
+                        transition: { duration: 0.2 }
+                      }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>
@@ -138,18 +185,23 @@ const Projects: React.FC = () => {
           </div>
 
           <motion.div
-            variants={itemVariants}
+            variants={ctaVariants}
             className="mt-12 text-center"
           >
-            <a
+            <motion.a
               href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary inline-flex items-center"
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               View More Projects
               {renderIcon(FaGithub as React.ComponentType<IconBaseProps>, { size: 20, className: 'ml-2' })}
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
