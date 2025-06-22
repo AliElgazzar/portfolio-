@@ -54,15 +54,24 @@ const About: React.FC = () => {
                 <h3 className="text-xl font-semibold mb-4">Experience</h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium">Frontend Engineer</h4>
-                    <p className="text-secondary">Company Name, 2022-Present</p>
+                    <h4 className="font-medium">Front-end Engineer</h4>
+                    <p className="text-secondary">Enozom Software, 2022-2024</p>
                     <ul className="list-disc list-inside mt-2 text-gray-600 dark:text-gray-300">
-                      <li>Led the development of multiple React applications</li>
-                      <li>Implemented TypeScript for better code quality</li>
-                      <li>Mentored junior developers</li>
+                      <li>Developed responsive, accessible web applications using React, TypeScript, and 
+                        Tailwind CSS, delivering seamless user experiences across modern
+                         browsers and device types.</li>
+                      <li>Led front-end development for microservice-based features, collaborating 
+                        closely with back-end engineers to ensure cohesive, 
+                        scalable, and maintainable system</li>
+                      <li>Designed and built reusable, modular UI components, accelerating 
+                        development workflows and ensuring visual 
+                        and functional consistency across the application.</li>
+
+                        <li>* Improved front-end performance through optimization strategies including lazy loading,
+                           code splitting, and adherence to modern best practices, reducing load times and
+                            improving user engagement.</li>
                     </ul>
                   </div>
-                  {/* Add more experience items as needed */}
                 </div>
               </div>
             </div>
