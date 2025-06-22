@@ -67,20 +67,18 @@ const Contact: React.FC = () => {
     {
       icon: FaEnvelope as React.ComponentType<IconBaseProps>,
       title: 'Email',
-      content: 'your.email@example.com',
-      link: 'mailto:your.email@example.com',
+      content: 'alielgazzar559@gmail.com',
+      link: 'mailto:alielgazzar559@gmail.com',
     },
     {
       icon: FaPhone as React.ComponentType<IconBaseProps>,
       title: 'Phone',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      content: '+1 (641) 233-0023',
     },
     {
       icon: FaMapMarkerAlt as React.ComponentType<IconBaseProps>,
       title: 'Location',
       content: 'New York, NY, USA',
-      link: 'https://maps.google.com/?q=New+York,+NY,+USA',
     },
   ];
 
