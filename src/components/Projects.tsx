@@ -9,6 +9,7 @@ interface Project {
   description: string;
   image: string;
   technologies: string[];
+  features?: string[];
   github: string;
   live: string;
 }
@@ -23,17 +24,38 @@ const Projects: React.FC = () => {
     return React.createElement(Icon, props);
   };
 
-  const projects: Project[] = [
-    {
-      title: 'E-Commerce Platform',
-      description:
-        'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.',
-      image: '/projects/placeholder.svg',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux'],
-      github: 'https://github.com/yourusername/ecommerce',
-      live: 'https://ecommerce-demo.com',
-    },
-    {
+const projects: Project[] = [
+  {
+    title: 'Smart Fitness & Workout Tracker',
+    description:
+      'A comprehensive web application designed to empower users in managing their fitness journey through intelligent workout tracking, routine planning, and AI-powered insights. The platform ensures secure user authentication and delivers a highly responsive user experience.',
+    image: '/projects/fitness-tracker-placeholder.svg',
+    technologies: [
+      'Angular (v20)',
+      'TypeScript',
+      'Node.js',
+      'Express.js',
+      'MongoDB Atlas',
+      'JWT Authentication',
+      'OpenAI API (GPT-4o-mini)',
+      'Vector Search (RAG)',
+      'Angular Signals'
+    ],
+    features: [ 
+      'Secure User Authentication with JWT (Login/Signup)',
+      'Personalized Workout Routine Creation & Management',
+      'Detailed Workout Logging & Progress Tracking',
+      'AI-Powered Exercise Suggestions (Function Calling)',
+      'AI-Driven Workout Plan Generation (Function Calling)',
+      'Intelligent Fitness Q&A via RAG from Curated Knowledge Base',
+      'Type-Safe Frontend & Backend Architecture',
+      'Lazy-Loaded Routing for Optimized Performance',
+      'Responsive UI with External Styles'
+    ],
+    github: 'https://github.com/yourusername/fitness-tracker-app',
+    live: 'https://fitness-tracker-demo.com', 
+  },
+  {
       title: 'Task Management App',
       description:
         'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
@@ -71,7 +93,6 @@ const Projects: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };
@@ -84,7 +105,6 @@ const Projects: React.FC = () => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
       },
     },
   };
@@ -96,7 +116,6 @@ const Projects: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
         delay: 0.6,
       },
     },

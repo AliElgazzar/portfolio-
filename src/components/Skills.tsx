@@ -150,6 +150,7 @@ const Skills: React.FC = () => {
                   'REST APIs',
                   'Webpack',
                   'Responsive Design',
+                  'angular',
                   'UI/UX Design',
                 ].map((skill, index) => (
                   <motion.span
