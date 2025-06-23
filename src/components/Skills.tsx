@@ -5,11 +5,9 @@ import { IconBaseProps } from 'react-icons';
 import {
   SiReact,
   SiTypescript,
-  SiJavascript,
   SiNodedotjs,
   SiTailwindcss,
   SiGit,
-  SiDocker,
   SiMongodb,
 } from 'react-icons/si';
 
@@ -33,11 +31,9 @@ const Skills: React.FC = () => {
   const skills: Skill[] = [
     { name: 'React', icon: SiReact as React.ComponentType<IconBaseProps>, level: 90, color: '#61DAFB' },
     { name: 'TypeScript', icon: SiTypescript as React.ComponentType<IconBaseProps>, level: 85, color: '#3178C6' },
-    { name: 'JavaScript', icon: SiJavascript as React.ComponentType<IconBaseProps>, level: 90, color: '#F7DF1E' },
     { name: 'Node.js', icon: SiNodedotjs as React.ComponentType<IconBaseProps>, level: 80, color: '#339933' },
     { name: 'Tailwind CSS', icon: SiTailwindcss as React.ComponentType<IconBaseProps>, level: 85, color: '#06B6D4' },
     { name: 'Git', icon: SiGit as React.ComponentType<IconBaseProps>, level: 85, color: '#F05032' },
-    { name: 'Docker', icon: SiDocker as React.ComponentType<IconBaseProps>, level: 75, color: '#2496ED' },
     { name: 'MongoDB', icon: SiMongodb as React.ComponentType<IconBaseProps>, level: 80, color: '#47A248' },
   ];
 
@@ -145,18 +141,16 @@ const Skills: React.FC = () => {
               <h3 className="text-xl font-semibold mb-4">Additional Skills</h3>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
-                  'HTML5',
-                  'CSS3',
-                  'SASS/SCSS',
+                  'HTML',
+                  'CSS',
                   'Redux',
-                  'GraphQL',
+                  'express',
+                  'Mongo atlas',
+                  'open ai',
                   'REST APIs',
-                  'Jest',
                   'Webpack',
                   'Responsive Design',
                   'UI/UX Design',
-                  'Agile Methodologies',
-                  'Problem Solving',
                 ].map((skill, index) => (
                   <motion.span
                     key={skill}
