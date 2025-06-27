@@ -59,7 +59,7 @@ const projects: Project[] = [
       title: 'Task Management App',
       description:
         'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: '/projects/placeholder.svg',
+      image: '../assets/fitnesstracker.png',
       technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
       github: 'https://github.com/yourusername/taskmanager',
       live: 'https://taskmanager-demo.com',
