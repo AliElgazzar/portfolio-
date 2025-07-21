@@ -77,7 +77,7 @@ const About: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <h4 className="font-medium">Master of Science in Computer Science</h4>
-                  <p className="text-secondary">(In progress via distance education; expected completion 06/2027) 
+                  <p className="text-secondary">(In progress via distance education, expected completion 06/2027) 
                                                   Maharishi International University, Fairfield, Iowa, USA</p>
                 </div>
                 <div>
